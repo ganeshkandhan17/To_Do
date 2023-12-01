@@ -21,7 +21,6 @@ function addtask(){
         document.querySelector("#input").value = "";
     }
 }
-window.onload = function() {
 let tasks = document.getElementById("tasks");
 tasks.addEventListener("click",function(e){
     if(e.target.tagName=="SPAN"){
@@ -52,4 +51,3 @@ tasks.addEventListener("click",function(e){
         }
     }  
 });
-}
