@@ -51,3 +51,12 @@ tasks.addEventListener("click",function(e){
         }
     }  
 });
+
+let span=document.querySelector(".close");
+span.addEventListener("click",function(){
+    let layover=document.querySelector(".layover");
+        layover.classList.add("hide");
+        setTimeout(function(){
+            layover.remove();
+        },600);
+});
