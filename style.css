@@ -57,9 +57,14 @@ button{
     justify-content: space-between;
     align-items:center;
     border-radius: 20px;
+    opacity: 1;
+    visibility: visible;
     text-align: left;
-    transition: transform .25s ease;
-    
+    transition: all .25s ease;
+}
+.tasksli.active{
+    opacity: 0;
+    visibility: hidden;
 }
 .tasksli:active{
     transform: translate(-5px,-5px);

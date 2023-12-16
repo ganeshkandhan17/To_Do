@@ -17,14 +17,28 @@ function addtask(){
         let span = document.createElement("span");
         span.innerHTML = "⛌";
         divnode.appendChild(span);
-        document.querySelector(".tasks").appendChild(divnode);
+        document.querySelector(".tasks").prepend(divnode);
         document.querySelector("#input").value = "";
     }
 }
 let tasks = document.getElementById("tasks");
 tasks.addEventListener("click",function(e){
-    if(e.target.tagName=="SPAN"){
-        e.target.parentElement.remove();
+    if(e.target.tagName=="DIV"){
+        let node=e.target.childNodes;
+        if(node[0].src.includes("img/checked.png")){
+            node[0].src="img/unchecked.png";
+            node[1].style.textDecoration="";
+        }
+        else if(node[0].src.includes("img/unchecked.png")){
+            node[0].src="img/checked.png";
+            node[1].style.textDecoration="line-through";
+        }
+    }
+    else if(e.target.tagName=="SPAN"){
+        e.target.parentElement.classList.add("active");
+        setTimeout(function(){
+            e.target.parentElement.remove();
+        },250);
     }
     else if(e.target.tagName=="IMG"){
         let btn=e.target;
@@ -59,4 +73,10 @@ span.addEventListener("click",function(){
         setTimeout(function(){
             layover.remove();
         },600);
+});
+
+document.getElementById("input").addEventListener("keydown",function(e){
+    if(e.code=="Enter"){
+        addtask();
+    }
 });
