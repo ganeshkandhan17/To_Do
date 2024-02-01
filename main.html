@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Application</title>
+    <link rel="stylesheet" href="style.css"></link>
+</head>
+<body id="body" class="body">
+    <div class="navbar">
+        <div class="navtemp">
+            <p class="title">Todo List</p>
+            <img class="logo" src="img/logo.png">
+        </div>
+        <div>
+            <ul class="navlist">
+                <li>
+                    <div class="flex">
+                    <input class="seain" type="text" name="searchdata">
+                    <img class="seaimg" src="./img/search.png">
+                    </div>
+                </li>
+                <li><a href="#">Github</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li>
+                    <img class="logout" style="margin-top: 5px;"src="./img/profile.png">
+                </li>
+            </ul>
+        </div>
+        <div class="prodrp">
+            <ul>
+                <li><img src="img/name.png"><p><b class="Name">Ganesh Kandhan V M</b></p></li>
+                <li><img src="./img/mail.png"><p><b class="Mail">ganeshkandhan@gmail.com</b></p></li>
+                <li style="margin-top: 25px;text-align: center;"><a href="loginsignup.html"><img src="./img/logout.png"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container1">
+            <div class="todoapp-input">
+                <input type="text" class="taskinput" id="input" name="task" placeholder="Enter The Task">
+                <button onclick="addtask()"><b>Add</b></button>
+            </div>
+            <div class="todoapp-input2">
+                <textarea name="description" placeholder="Enter Description" id="des" cols="30" rows="5" hidden></textarea>
+                <input type="datetime-local" id="date" name="date" placeholder="Expairation date" hidden>
+            </div>
+            <div id="tasks" class="tasks">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
