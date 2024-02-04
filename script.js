@@ -9,7 +9,11 @@ function addtask() {
     let hr = timehs[0];
     console.log(hr);
     hr = parseInt(hr);
-    console.log(hr / 2);
+    let hrn = "AM"
+    if (hr > 12) {
+        hrn = "PM";
+        hr = hr - 12;
+    }
     if (input == "") {
         alert("Enter Task");
     }
@@ -37,16 +41,21 @@ function addtask() {
         dp.className = "dtlp1";
         let dd = document.createElement("p");
         dd.className = "dtlp2"
+        let dt = document.createElement("p");
+        dt.className = "dtlp3";
         dp.innerHTML = `<b>Description :</b> ${des}`;
-        dd.innerHTML = `<b>Expiration Date :</b> ${date}`;
+        dd.innerHTML = `<b>Expiration Date :</b> ${date[0]}`;
+        dt.innerHTML = `<b>Expiration Time : </b> ${hr} : ${timehs[1]} ${hrn} `;
         console.log(detail);
         detail.appendChild(dp);
         detail.appendChild(dd);
+        detail.appendChild(dt);
         divnode.appendChild(detail);
     }
 }
 let tasks = document.getElementById("tasks");
-tasks.addEventListener("click", function (e) {
+tasks.addEventListener("click", remove);
+function remove(e) {
     if (e.target.tagName == "DIV") {
         let node = e.target.childNodes;
         if (node[0].src.includes("img/checked.png")) {
@@ -88,7 +97,26 @@ tasks.addEventListener("click", function (e) {
             tt.style.textDecoration = "line-through";
         }
     }
-});
+    let linode = e.target.childNodes;
+    console.log(linode)
+    let task = linode[1].innerHTML;
+    console.log(task)
+    let date = linode[3].childNodes[1].innerHTML;
+    date = date.split("</b>");
+    date = date[1];
+    console.log(date)
+    let tr = document.createElement("tr");
+    let td1 = document.createElement("td");
+    let td2 = document.createElement("td");
+    td1.innerHTML = task;
+    td2.innerHTML = date;
+    console.log(td1, td2);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    console.log(tr);
+    let table = document.querySelector(".table");
+    table.appendChild(tr);
+}
 document.getElementById("input").addEventListener("keydown", function (e) {
     if (e.code == "Enter") {
         addtask();
@@ -96,7 +124,13 @@ document.getElementById("input").addEventListener("keydown", function (e) {
 });
 document.querySelector(".seaimg").addEventListener('click', () => {
     let seain = document.querySelector('.seain');
-    seain.classList.toggle('active');
+    if(seain.value==""){
+        seain.classList.toggle('active');
+    }
+    else{
+
+    }
+    
 });
 let logout = document.querySelector(".logout");
 logout.addEventListener('click', () => {
@@ -105,14 +139,11 @@ logout.addEventListener('click', () => {
 
 let taskin = document.querySelector('.taskinput');
 taskin.addEventListener('focus', (e) => {
-    console.log("1")
     document.querySelector('#des').removeAttribute("hidden");
     document.querySelector('#date').removeAttribute("hidden");
-    console.log("2")
 })
 
 taskin.addEventListener('blur', (e) => {
-    console.log("3")
     if (taskin.value == "") {
         document.querySelector('#des').setAttribute("hidden", "");
         document.querySelector('#date').setAttribute("hidden", "");
