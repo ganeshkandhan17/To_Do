@@ -50,6 +50,10 @@ input {
     font-size: 15px;
 }
 
+input:focus{
+    outline: 1px solid #f1a4c8;
+}
+
 button {
     outline: none;
     border: none;
@@ -60,6 +64,7 @@ button {
     border-radius: 15px;
     margin-left: 10px;
     font-size: 15px;
+    outline: 1px solid #f1a4c8;
 }
 
 .todoapp-input {
@@ -284,7 +289,7 @@ h1 {
     transition: 0.25s ease;
 }
 
-.prodrp.active {
+.prodrp .active{
     visibility: visible;
     opacity: 1;
 }
@@ -317,6 +322,10 @@ h1 {
     font-size: 15px;
     margin: 10px 40px;
     resize: vertical;
+}
+
+#des:focus{
+    outline: 1px solid #f1a4c8;
 }
 
 .dtldiv {
@@ -375,9 +384,11 @@ th {
 .reficn{
     margin: 10px;
     transform: rotate(-90);
+    rotate: none;
+    transition: 5s ease;
 }
 .reficn.active{
-
+    rotate: 740deg;
 }
 @media screen and (max-width: 420px) {
     .taskcontent {

@@ -147,3 +147,7 @@ function gettime() {
     let realtime = `${time[0]} : ${time[1]} ${tn}`;
     return realtime;
 }
+let refbtn=document.querySelector('.refbtn');
+refbtn.addEventListener('click',(e)=>{
+    document.querySelector('.reficn').classList.toggle('active');
+})
