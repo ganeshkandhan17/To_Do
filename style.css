@@ -79,6 +79,7 @@ button {
 }
 
 .tasksli {
+    cursor: pointer;
     background-color: rgba(219, 219, 219, 0.479);
     width: 70%;
     padding: 2.5px 10px;
@@ -247,7 +248,7 @@ h1 {
     opacity: 0;
     visibility: hidden;
     transform: skew(0);
-    transition: all 1s ease;
+    transition: all 0.25s ease;
 }
 
 .navbar input.active {
@@ -366,6 +367,18 @@ th {
     margin-bottom: 20px;
 }
 
+.refbtn{
+    width:140px;
+    height:35px
+}
+
+.reficn{
+    margin: 10px;
+    transform: rotate(-90);
+}
+.reficn.active{
+
+}
 @media screen and (max-width: 420px) {
     .taskcontent {
         font-size: 15px;
