@@ -6,7 +6,7 @@ function formvalidate() {
         return false
     }
 }
-function addtask(input, des, date,uid) {
+function addtask(input, des, date, uid) {
     // let input = document.querySelector("#input").value;
     // let des = document.querySelector("#des").value;
     // let date = document.querySelector("#date").value;
@@ -60,12 +60,12 @@ function addtask(input, des, date,uid) {
         dd.className = "dtlp2";
         let dt = document.createElement("p");
         dt.className = "dtlp3";
-        let ui=document.createElement("p");
-        ui.className="unid"
+        let ui = document.createElement("p");
+        ui.className = "unid"
         dp.innerHTML = `<b>Description :</b> ${des}`;
         dd.innerHTML = `<b>Expiration Date :</b> ${date1}`;
         dt.innerHTML = `<b>Expiration Time : </b> ${hr} : ${min} ${hrn} `;
-        ui.innerHTML=`<b>Id :</b> ${uid}`
+        ui.innerHTML = `<b>Id :</b> ${uid}`
         detail.appendChild(dp);
         detail.appendChild(dd);
         detail.appendChild(dt);
@@ -73,16 +73,16 @@ function addtask(input, des, date,uid) {
         divnode.appendChild(detail);
     }
 }
-function addhistory(task,date){
-        let tr = document.createElement("tr");
-        let td1 = document.createElement("td");
-        let td2 = document.createElement("td");
-        td1.innerHTML = task;
-        td2.innerHTML = getdateandtime(date);
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        let table = document.querySelector(".tabody");
-        table.appendChild(tr);
+function addhistory(task, date) {
+    let tr = document.createElement("tr");
+    let td1 = document.createElement("td");
+    let td2 = document.createElement("td");
+    td1.innerHTML = task;
+    td2.innerHTML = getdateandtime(date);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    let table = document.querySelector(".tabody");
+    table.appendChild(tr);
 }
 let amarkcomplete = () => alert('Mark Complete Successful')
 let amarkuncomplete = () => alert('Marked Incomplete Successful')
@@ -95,62 +95,62 @@ function remove(e) {
             node[0].src = "img/unchecked.png";
             node[1].style.textDecoration = "";
             let task = e.target.childNodes[1].innerHTML
-            let temp=e.target.childNodes[3].lastChild.innerHTML;            console.log(temp)
-            let ui=getuid(temp)
-            markuncomplete(task,ui)
+            let temp = e.target.childNodes[3].lastChild.innerHTML; console.log(temp)
+            let ui = getuid(temp)
+            markuncomplete(task, ui)
         } else if (node[0].src.includes("img/unchecked.png")) {
             node[0].src = "img/checked.png";
             node[1].style.textDecoration = "line-through";
             let task = e.target.childNodes[1].innerHTML;
-            let temp=e.target.childNodes[3].lastChild.innerHTML;
-            let ui=getuid(temp)
-            markcomplete(task,ui)
+            let temp = e.target.childNodes[3].lastChild.innerHTML;
+            let ui = getuid(temp)
+            markcomplete(task, ui)
         }
     } else if (e.target.tagName == "SPAN") {
         e.target.parentElement.classList.add("active");
-        let task=e.target.previousSibling.innerHTML;
-        let temp=e.target.nextSibling.childNodes[3].innerHTML;
-        let ui=getuid(temp)
-        delettask(task,ui)
+        let task = e.target.previousSibling.innerHTML;
+        let temp = e.target.nextSibling.childNodes[3].innerHTML;
+        let ui = getuid(temp)
+        delettask(task, ui)
         setTimeout(function () {
             e.target.parentElement.remove();
         }, 250);
     } else if (e.target.tagName == "IMG") {
         let btn = e.target;
         let tt = e.target.nextSibling;
-        let task=tt.innerHTML;
-        let parent=e.target.parentElement;
-        let temp=parent.childNodes[3].lastChild.innerHTML;
-        let ui=getuid(temp)
+        let task = tt.innerHTML;
+        let parent = e.target.parentElement;
+        let temp = parent.childNodes[3].lastChild.innerHTML;
+        let ui = getuid(temp)
         if (btn.src.includes("img/checked.png")) {
             btn.src = "img/unchecked.png";
             tt.style.textDecoration = "";
-            markuncomplete(task,ui)
+            markuncomplete(task, ui)
         } else if (btn.src.includes("img/unchecked.png")) {
             btn.src = "img/checked.png";
             tt.style.textDecoration = "line-through";
-            markcomplete(task,ui)
+            markcomplete(task, ui)
         }
     } else if (e.target.tagName == "P") {
         let btn = e.target.previousSibling;
         let tt = e.target;
-        let task=tt.innerHTML;
-        let parent=e.target.parentElement;
-        let temp=parent.childNodes[3].lastChild.innerHTML;
-        let ui=getuid(temp)
+        let task = tt.innerHTML;
+        let parent = e.target.parentElement;
+        let temp = parent.childNodes[3].lastChild.innerHTML;
+        let ui = getuid(temp)
         if (btn.src.includes("img/checked.png")) {
             btn.src = "img/unchecked.png";
             tt.style.textDecoration = "";
-            markuncomplete(task,ui);
+            markuncomplete(task, ui);
         } else if (btn.src.includes("img/unchecked.png")) {
             btn.src = "img/checked.png";
             tt.style.textDecoration = "line-through";
-            markcomplete(task,ui);
+            markcomplete(task, ui);
         }
     }
 }
-function getuid(temp){
-    temp=temp.split(" ")
+function getuid(temp) {
+    temp = temp.split(" ")
     return temp[2];
 }
 document.querySelector(".seaimg").addEventListener("click", () => {
@@ -189,17 +189,17 @@ function gettime() {
     let realtime = `${time[0]} : ${time[1]} ${tn}`;
     return realtime;
 }
-function getdateandtime(date){
-    let date2=date.toString().split('T')
-    let hrn="AM"
-    let date3=date2[0];
-    let time1=date2[1];
-    time1=time1.split(":");
-    let hr=parseInt(time1[0])
-    let min=parseInt(time1[1])
-    if(hr>12){
-        hr=hr-12
-        hrn="PM"
+function getdateandtime(date) {
+    let date2 = date.toString().split('T')
+    let hrn = "AM"
+    let date3 = date2[0];
+    let time1 = date2[1];
+    time1 = time1.split(":");
+    let hr = parseInt(time1[0])
+    let min = parseInt(time1[1])
+    if (hr > 12) {
+        hr = hr - 12
+        hrn = "PM"
     }
     return `${date3} / ${hr}:${min} ${hrn}`
 }
@@ -217,37 +217,37 @@ let refbtn = document.querySelector('.refbtn');
 refbtn.addEventListener('click', () => {
     document.querySelector('.reficn').classList.toggle('active');
 })
-async function gettasks(email){
-    let url="/gettasks"
-    await fetch(url,{
+async function gettasks(email) {
+    let url = "/gettasks"
+    await fetch(url, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify({ email: email})
+        body: JSON.stringify({ email: email })
     })
-    .then((result)=>result.json())
-    .then((data)=>{
-        data.forEach(el => {
-            addtask(el.task,el.description,el.expDate,el._id)
-        });
-    }) 
-}
-async function gethistory(email){
-    let url="/gethistory"
-    await fetch(url,{
-        method : 'POST',
-        headers : {
-            'content-type' : 'application/json',
-        },
-        body: JSON.stringify({ email: email})
-    })
-    .then((result)=>result.json())
-    .then((data)=>{
-        data.forEach(el=>{
-            addhistory(el.task,el.compDate)
+        .then((result) => result.json())
+        .then((data) => {
+            data.forEach(el => {
+                addtask(el.task, el.description, el.expDate, el._id)
+            });
         })
+}
+async function gethistory(email) {
+    let url = "/gethistory"
+    await fetch(url, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify({ email: email })
     })
+        .then((result) => result.json())
+        .then((data) => {
+            data.forEach(el => {
+                addhistory(el.task, el.compDate)
+            })
+        })
 }
 async function refreshdata() {
     let email = document.querySelector(".Mail").innerHTML
@@ -256,19 +256,52 @@ async function refreshdata() {
     gettasks(email)
     gethistory(email)
 }
+let seabtn = document.querySelector('.seaimg');
+let seain = document.querySelector('.seain')
+seabtn.addEventListener('click', search)
+async function search() {
+    let query = document.querySelector('.seain').value;
+    let email = document.querySelector(".Mail").innerHTML;
+    if (query) {
+        let url = '/search'
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ query: query, email: email })
+        })
+            .then((data) => data.json())
+            .then((result) => {
+                removealltasks()
+                let count=0;
+                result.forEach((data1) => {
+                    temptask = data1.task.toLowerCase();
+                    if (temptask.includes(query.toLowerCase())&&data1.completed==0) {
+                        count++;
+                        addtask(data1.task, data1.description, data1.expDate, data1._id)
+                    }
+                })
+                if(count==0){
+                    alert("Task Not Found")
+                    refreshdata()
+                }
+            })
+    }
+}
 function removealltasks() {
     let tasks = document.querySelector(".tasks");
     while (tasks.firstChild) {
         tasks.removeChild(tasks.firstChild);
     }
 }
-function removeallhistory(){
-    let tbody=document.querySelector(".tabody");
+function removeallhistory() {
+    let tbody = document.querySelector(".tabody");
     while (tbody.firstChild) {
         tbody.removeChild(tbody.firstChild);
     }
 }
-async function markcomplete(task,ui) {
+async function markcomplete(task, ui) {
     let email = document.querySelector(".Mail").innerHTML
     date = getrealdateandtime()
     await fetch('/markcomplete', {
@@ -276,7 +309,7 @@ async function markcomplete(task,ui) {
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify({ email: email, task: task, date: date,ui :ui })
+        body: JSON.stringify({ email: email, task: task, date: date, ui: ui })
     })
         .then((data => data.json()))
         .then((result) => {
@@ -291,14 +324,14 @@ async function markcomplete(task,ui) {
             alert("Error Occurs at Marking Complete" + err);
         })
 }
-async function markuncomplete(task) {
+async function markuncomplete(task,ui) {
     let email = document.querySelector(".Mail").innerHTML
     await fetch('/markuncomplete', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify({ email: email, task: task })
+        body: JSON.stringify({ email: email, task: task,ui : ui })
     })
         .then((data => data.json()))
         .then((result) => {
@@ -313,7 +346,7 @@ async function markuncomplete(task) {
             alert("Error Occurs at Marking Complete" + err);
         })
 }
-async function delettask(task,ui) {
+async function delettask(task, ui) {
     let email = document.querySelector(".Mail").innerHTML;
     console.log(email)
     console.log(task)
@@ -322,15 +355,21 @@ async function delettask(task,ui) {
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify({ email: email, task: task ,ui : ui })
+        body: JSON.stringify({ email: email, task: task, ui: ui })
     })
-    .then((data)=>data.json())
-    .then((result)=>{
-        if(result.status=="success"){
-            alert("Task Deleted Successful")
-        }
-        else{
-            alert("Task Delete Failed");
-        }
-    })
+        .then((data) => data.json())
+        .then((result) => {
+            if (result.status == "success") {
+                alert("Task Deleted Successful")
+            }
+            else {
+                alert("Task Delete Failed");
+            }
+        })
 }
+seain=document.querySelector('.seain')
+seain.addEventListener('keydown',(e)=>{
+    if(e.code=="Enter"){
+        search();
+    }
+})

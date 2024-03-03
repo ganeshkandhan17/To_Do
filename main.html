@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <link rel="icon" type="images/x-icon" href="./public/img/titlelogo.png" />
+    <link rel="icon" type="images/x-icon" href="./img/titlelogo.png">
 </head>
 
 <body id="body" class="body">
@@ -45,8 +50,15 @@
                 <li class="flex1"><img src="./img/mail.png">
                     <p><b class="Mail">Error</b></p>
                 </li>
-                <li style="margin-top: 25px;text-align: center;"><a href="login.html"><img src="./img/logout.png"></a>
-                </li>
+                <div class="flex3">
+                    <li style="margin-top: 25px;text-align: center;"><a href="../changepassword.html"><img
+                                src="./img/pass.png"></a>
+                    </li>
+                    <li style="margin-top: 25px;text-align: center;"><a href="login.html"><img
+                                src="./img/logout.png"></a>
+                    </li>
+                </div>
+
             </ul>
         </div>
     </div>
@@ -57,12 +69,12 @@
                     <input type="text" class="taskinput" id="input" name="task" placeholder="Enter The Task">
                     <input class="inputmail" name="email" hidden>
                     <input class="inputname" name="name" hidden>
-                    <button tabindex="-1" type="submit" ><b>Add</b></button>
+                    <button tabindex="-1" type="submit"><b>Add</b></button>
                 </div>
                 <div class="todoapp-input2">
                     <textarea name="description" placeholder="Enter Description (Optional)" id="des" cols="30" rows="5"
                         hidden></textarea>
-                    <input type="datetime-local" id="date" name="date" placeholder="Expairation date"  hidden>
+                    <input type="datetime-local" id="date" name="date" placeholder="Expairation date" hidden>
                 </div>
             </form>
             <div id="tasks" class="tasks">
@@ -78,22 +90,22 @@
                     </tr>
                 </thead>
                 <tbody class="tabody">
-                    
+
                 </tbody>
             </table>
         </div>
     </div>
     <script src="script.js"></script>
     <script>
-        var loginedname='<%= name %>'
-        var loginedemailid='<%= emailid %>'
+        var loginedname = '<%= name %>'
+        var loginedemailid = '<%= emailid %>'
         gettasks(loginedemailid)
         gethistory(loginedemailid)
-        document.querySelector(".Name").innerHTML=loginedname;
-        document.querySelector(".Mail").innerHTML=loginedemailid
-        document.querySelector(".inputmail").value=loginedemailid
-        document.querySelector(".inputname").value=loginedname
-    </script> 
+        document.querySelector(".Name").innerHTML = loginedname;
+        document.querySelector(".Mail").innerHTML = loginedemailid
+        document.querySelector(".inputmail").value = loginedemailid
+        document.querySelector(".inputname").value = loginedname
+    </script>
 </body>
 
 </html>

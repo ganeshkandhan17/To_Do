@@ -8,6 +8,8 @@ body {
     background-attachment: fixed;
     height: 100vh;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    position: relative;
+    overflow-x: hidden;
 }
 
 .container {
@@ -50,7 +52,7 @@ input {
     font-size: 15px;
 }
 
-input:focus{
+input:focus {
     outline: 1px solid #f1a4c8;
 }
 
@@ -65,7 +67,8 @@ button {
     margin-left: 10px;
     font-size: 15px;
 }
-button:hover{
+
+button:hover {
     outline: 1px solid #f1a4c8;
 }
 
@@ -273,7 +276,13 @@ h1 {
     justify-content: right;
     align-items: center;
 }
-.prodrp .flex1{
+.flex3{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.prodrp .flex1 {
     display: flex;
     gap: 10px;
 }
@@ -282,7 +291,7 @@ h1 {
     margin-right: 20px;
 }
 
-.prodrp{
+.prodrp {
     position: absolute;
     right: 0;
     top: 60px;
@@ -293,10 +302,10 @@ h1 {
     visibility: hidden;
     opacity: 0;
     transition: 0.25s ease;
-    min-width:250px;
+    min-width: 250px;
 }
 
-.prodrp.active{
+.prodrp.active {
     visibility: visible;
     opacity: 1;
 }
@@ -331,13 +340,13 @@ h1 {
     resize: vertical;
 }
 
-#des:focus{
+#des:focus {
     outline: 1px solid #f1a4c8;
 }
 
 .dtldiv {
     position: absolute;
-    left: 460px;
+    left: 100%;
     background-color: rgb(255, 255, 255);
     padding: 25px;
     border-radius: 15px;
@@ -351,7 +360,7 @@ h1 {
 .dtlp1,
 .dtlp3,
 .dtlp2,
-.unid{
+.unid {
     font-size: 17px;
 }
 
@@ -369,7 +378,8 @@ table {
 
 th,
 td {
-    border: 2px solid rgba(0, 0, 0, 0.5);;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    ;
     width: 50%;
     padding: 10px;
 }
@@ -384,47 +394,25 @@ th {
     margin-bottom: 20px;
 }
 
-.refbtn{
-    width:140px;
-    height:35px;
+.refbtn {
+    width: 140px;
+    height: 35px;
     outline: none;
     transition: .5s ease;
 }
-.refbtn:hover{
+
+.refbtn:hover {
     outline: 1px solid #f1a4c8;
 }
 
-.reficn{
+.reficn {
     margin: 10px;
     transform: rotate(-90);
     rotate: none;
     transition: 5s ease;
 }
-.reficn.active{
+
+.reficn.active {
     rotate: 740deg;
 }
-@media screen and (max-width: 420px) {
-    .taskcontent {
-        font-size: 15px;
-    }
 
-    .container {
-        width: 90%;
-    }
-
-    .tasksli {
-        padding: 5px;
-    }
-
-    input {
-        height: 35px;
-    }
-
-    button {
-        height: 50px;
-    }
-
-    .content {
-        width: 75%;
-    }
-}
