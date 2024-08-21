@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="images/x-icon" href="./img/titlelogo.png">
+</head>
+
+<body id="body" class="body">
+    <div class="navbar">
+        <div class="navtemp">
+            <p class="title">Todo List</p>
+            <img class="logo" src="img/logo.png">
+        </div>
+        <div>
+            <ul class="navlist">
+                <li>
+                    <button class="flex refbtn" onclick="refreshdata()">
+                        <div class="flex">
+                            <p class="refbtntxt"><b>Refresh</b></p>
+                            <img class="reficn" src="./img/refresh.png">
+                        </div>
+                    </button>
+                </li>
+                <li>
+                    <div class="flex">
+                        <input class="seain" type="text" name="searchdata">
+                        <img class="seaimg" src="./img/search.png">
+                    </div>
+                </li>
+                <!-- <li><a href="#">Github</a></li> -->
+                <li><a href="#">Contact Us</a></li>
+                <li>
+                    <img class="logout" style="margin-top: 5px;" src="./img/profile.png">
+                </li>
+            </ul>
+        </div>
+        <div class="prodrp">
+            <ul>
+                <li class="flex1"><img src="img/name.png">
+                    <p><b class="Name">Error</b></p>
+                </li>
+                <li class="flex1"><img src="./img/mail.png">
+                    <p><b class="Mail">Error</b></p>
+                </li>
+                <div class="flex3">
+                    <li style="margin-top: 25px;text-align: center;"><a href="../changepassword.html"><img
+                                src="./img/pass.png"></a>
+                    </li>
+                    <li style="margin-top: 25px;text-align: center;"><a href="login.html"><img
+                                src="./img/logout.png"></a>
+                    </li>
+                </div>
+
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container1">
+            <form action="/addtask" method="post" onsubmit="return formvalidate()">
+                <div class="todoapp-input">
+                    <input type="text" class="taskinput" id="input" name="task" placeholder="Enter The Task">
+                    <input class="inputmail" name="email" hidden>
+                    <input class="inputname" name="name" hidden>
+                    <button tabindex="-1" type="submit"><b>Add</b></button>
+                </div>
+                <div class="todoapp-input2">
+                    <textarea name="description" placeholder="Enter Description (Optional)" id="des" cols="30" rows="5"
+                        hidden></textarea>
+                    <input type="datetime-local" id="date" name="date" placeholder="Expairation date" hidden>
+                </div>
+            </form>
+            <div id="tasks" class="tasks">
+            </div>
+        </div>
+        <div class="container2">
+            <p class="historytxt">History</p>
+            <table class="table">
+                <thead class="tahead">
+                    <tr>
+                        <th>Task</th>
+                        <th>Completed Date / Time</th>
+                    </tr>
+                </thead>
+                <tbody class="tabody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        var loginedname = '<%= name %>'
+        var loginedemailid = '<%= emailid %>'
+        gettasks(loginedemailid)
+        gethistory(loginedemailid)
+        document.querySelector(".Name").innerHTML = loginedname;
+        document.querySelector(".Mail").innerHTML = loginedemailid
+        document.querySelector(".inputmail").value = loginedemailid
+        document.querySelector(".inputname").value = loginedname
+    </script>
+</body>
+
+</html>
