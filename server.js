@@ -265,3 +265,7 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running at port ${port}`);
 });
+
+process.on("uncaughtException",(err)=>{
+    console.error("Error Occcurs"+err);
+})
