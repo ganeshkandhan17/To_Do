@@ -13,6 +13,7 @@ let port = 3001;
 app.engine('html', ejs.renderFile);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
+require("dotenv").config();
 db()
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
